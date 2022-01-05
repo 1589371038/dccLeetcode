@@ -1,0 +1,2 @@
+public class GuPiaok2 {
+}
