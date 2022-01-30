@@ -20,6 +20,7 @@
       <module fileurl="file://$PROJECT_DIR$/Module8_Matrix/Module8_Matrix.iml" filepath="$PROJECT_DIR$/Module8_Matrix/Module8_Matrix.iml" />
       <module fileurl="file://$PROJECT_DIR$/Other/Other.iml" filepath="$PROJECT_DIR$/Other/Other.iml" />
       <module fileurl="file://$PROJECT_DIR$/Thread/Thread.iml" filepath="$PROJECT_DIR$/Thread/Thread.iml" />
+      <module fileurl="file://$PROJECT_DIR$/二分查找/二分查找.iml" filepath="$PROJECT_DIR$/二分查找/二分查找.iml" />
       <module fileurl="file://$PROJECT_DIR$/数字运算/数字运算.iml" filepath="$PROJECT_DIR$/数字运算/数字运算.iml" />
       <module fileurl="file://$PROJECT_DIR$/滑动窗口/滑动窗口.iml" filepath="$PROJECT_DIR$/滑动窗口/滑动窗口.iml" />
     </modules>
