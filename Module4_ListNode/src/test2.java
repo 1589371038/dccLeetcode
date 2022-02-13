@@ -7,6 +7,7 @@ public class test2 {
         ListNode head=new ListNode(5);
         ListNode head2 = head;
         head.next=new ListNode(4);
-        System.out.println(head2.next.val);
+        回文链表 s = new 回文链表();
+        s.isPalindrome(head);
     }
 }

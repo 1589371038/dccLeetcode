@@ -39,7 +39,26 @@ public class 最短无序子数组 {
         }
         return L<R?R-L+1:0;
     }
+    public int findUnsortedSubarray2(int[] nums) {
+        Deque<Integer> stack = new ArrayDeque<>();
+        int index1 = nums.length;
+        int index2 = -1;
+        for(int i=0;i<nums.length;i++){
+            while(!stack.isEmpty()&&nums[stack.peek()]>nums[i]){
+                index1 = Math.min(index1, stack.pop());
+            }
+            stack.push(i);
+        }
+        stack.clear();
+        for(int i = nums.length-1; i>=0; i--){
+            while(!stack.isEmpty()&&nums[stack.peek()]<nums[i]){
+                index2 = Math.max(index2, stack.pop());
+            }
+            stack.push(i);
+        }
+        return index1<index2 ? index2-index1+1 : 0;
 
+    }
     public static void main(String[] args) {
         findUnsortedSubarray(new int[]{2,6,4,8,10,9,15});
     }

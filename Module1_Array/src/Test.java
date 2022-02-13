@@ -1,21 +1,9 @@
 public class Test {
     public static void main(String[] args) {
-        int [] nums={1,2,3,4,5,6};
-        打乱数组384 s = new 打乱数组384(nums);
-        int[] shuffle = s.shuffle();
-        for(int i:shuffle){
-            System.out.print(i+" ");
-        }
-        System.out.println();
-        int[] shuffle1 = s.shuffle();
-        for(int i:shuffle1){
-            System.out.print(i+" ");
-        }
-        System.out.println();
-        int[] reset = s.reset();
-        for(int i:reset){
-            System.out.print(i+" ");
-        }
+        数组中的第K个最大的元素 s = new 数组中的第K个最大的元素();
+        int [] a = new int[]{1,5,3,2,4,7,6};
+        s.heapSort(a);
+        System.out.println(a);
 
 
 

@@ -19,7 +19,7 @@ import java.util.PriorityQueue;
  1  3  -1  -3 [5  3  6] 7       6
  1  3  -1  -3  5 [3  6  7]      7
  */
-//用最大堆，但是超时了
+//用最大堆，但是超时了， 因为这个remove是指定元素而不是poll所以效率太低了！！！
 public class 滑动窗口的最大值 {
     public static int[] maxSlidingWindow(int[] nums, int k) {
         int len=nums.length;
@@ -38,6 +38,35 @@ public class 滑动窗口的最大值 {
             pq.add(nums[i]);
             pq.remove(nums[i-k]);
             result[i-k+1]=pq.peek();
+        }
+        return result;
+    }
+
+    /**
+     * 改进之后，存<数字，下标> 如果获取的滑动窗口最大值的下标在窗口内，则poll删除堆顶
+     * @param nums
+     * @param k
+     * @return
+     */
+    public static int[] maxSlidingWindow2(int[] nums, int k) {
+        int len=nums.length;
+        int[]result=new int[len-k+1];
+        PriorityQueue<int[]> pq = new PriorityQueue<>(new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o2[0]-o1[0];
+            }
+        });
+        for(int i=0; i<k; i++){
+            pq.add(new int[]{nums[i], i});
+        }
+        result[0]=pq.peek()[0];
+        for(int i=k;i<nums.length; i++){
+            pq.offer(new int[]{nums[i], i});
+            while (pq.peek()[1]< i-k+1){  // 如果最大值超过了滑动窗口左边界就要poll掉
+                pq.poll();
+            }
+            result[i-k+1] = pq.peek()[0];
         }
         return result;
     }

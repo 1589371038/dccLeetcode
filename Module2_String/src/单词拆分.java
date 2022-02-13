@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * 139. 单词拆分
@@ -75,5 +76,29 @@ public class 单词拆分 {
     }
     public static void main(String[] args) {
         wordBreak2("leetcode", Arrays.asList(new String[]{"leet","code"}));
+    }
+
+    public boolean wordBreak3(String s, List<String> wordDict) {
+        boolean [] result = new boolean[s.length()+1];  // i 1-len 对应s 0 - len-1 下标
+        result[0] = true;
+
+        int maxLen=0;
+        Set<String> set = new HashSet<>(); // set的contains比list效率高
+        for(String ss : wordDict){
+            maxLen = Math.max(maxLen, ss.length());
+            set.add(ss);
+        }
+        for(int i=1; i<result.length; i++){
+            int startIndex = Math.max(0,(i-1)-maxLen+1);
+
+            for(int j=startIndex; j<=i-1; j++){
+                if(set.contains(s.substring(j,i))){
+                    result[i]=result[i]||result[j];
+                }
+            }
+
+        }
+        return result[result.length-1];
+
     }
 }

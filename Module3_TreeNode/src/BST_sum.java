@@ -23,6 +23,19 @@ public class BST_sum {
         if(root.left!=null){
             changeNode(root.left);
         }
+    }
 
+    public TreeNode convertBST1(TreeNode root) {
+        dfs(root);
+        return root;
+    }
+    private int dfs(TreeNode node){
+        if(node == null){
+            return 0;
+        }
+        int rightResult = dfs(node.right);
+        node.val = rightResult+node.val;
+        int leftResult = dfs(node.left);
+        return rightResult + node.val + leftResult;
     }
 }

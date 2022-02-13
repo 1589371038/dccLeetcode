@@ -18,6 +18,19 @@ public class MaxSonArray_Multi {
             max=Math.max(max,dpMax[i]);
         }
         return max;
+    }
+    public int maxProduct1(int[] nums) {
+        int max=nums[0];
+        int min=nums[0];
+        int recordMax = max;
+        for(int i=1;i<nums.length;i++){
+            int newMax = Math.max(max*nums[i],Math.max(min*nums[i], nums[i]));
+            recordMax = Math.max(recordMax, newMax);
+            int newMin = Math.min(max*nums[i],Math.min(min*nums[i], nums[i]));
+            max = newMax;
+            min = newMin;
+        }
+        return recordMax;
 
     }
 }
