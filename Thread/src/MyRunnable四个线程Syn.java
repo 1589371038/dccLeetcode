@@ -18,6 +18,12 @@ public class MyRunnable四个线程Syn implements Runnable{
             synchronized (lock){
                 if(num%4==flag){
                     System.out.println(Thread.currentThread().getName()+"=="+num++);
+                    lock.notifyAll();
+                    try {
+                        lock.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }else {
                     try{
                         lock.wait();
@@ -26,7 +32,7 @@ public class MyRunnable四个线程Syn implements Runnable{
                     }
 
                 }
-                lock.notifyAll();
+
             }
         }
 
